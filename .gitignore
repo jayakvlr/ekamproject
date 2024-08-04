@@ -2,4 +2,5 @@ venv/
 config.yaml
 config.env
 ekamapp/wati_utils.py
+ekamapp/auth.py
 
