@@ -1,0 +1,411 @@
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('../fonts/AlegreyaSans-Medium.woff2') format('woff2'),
+        url('../fonts/AlegreyaSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Alegreya Sans';
+    margin: 0;
+    padding: 0;
+}
+.fn14{
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+.mt10{
+    margin-top: 10px;
+}
+.flex{
+    display: flex;
+}
+.spb{
+    justify-content: space-between;
+}
+.alc{
+    align-items: center;
+}
+.text_center{
+    text-align: center;
+}
+.dashboard_container{
+    height: 100%;
+    display: flex;
+}
+.drawer{
+    min-width: 300px;
+    max-width: 300px;
+    height: 100%;
+    background: #F9F9F9;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+.drawer_logo{
+    padding: 0px 45px;
+    background-color: #E2ECFF;
+    border-bottom: 1px solid #ebe7e7;
+}
+.drawer_logo img{
+    width: 100%;
+}
+.user_logo{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #ccc;
+}
+.user_logo img{
+    height: 100%;
+    margin-right: 12px;
+}
+.nav_links{
+    margin: 25px;
+}
+.qr_link{
+    padding-top: 55px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+    color: #ccc;
+    flex: 1;
+}
+.qr_img{
+    height: 100px;
+}
+.qr_img img{
+    height: 100%;
+}
+.qr_link button{
+    background: #4C5D82;
+    color: #fff;
+    font-family: 'Alegreya Sans';
+    border-radius: 25px;
+    padding: 7px 20px;
+    border: 1px solid #4C5D82;
+    margin-top: 10px;
+}
+.logout{
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    padding: 15px 25px;
+    border-top: 1px solid #ccc;
+}
+
+.dashboard-content{
+    width: 100%;
+    overflow-y: scroll;
+}
+
+.nav_bar{
+    height: 67px;
+    width: calc(100% - 320px);
+    background: #F0F5FF;
+    position: fixed;
+}
+
+.dashboard_main{
+    display: flex;
+    padding: 20px;
+    margin-top: 67px;
+}
+
+.event_section, .ticket_section{
+    background: transparent linear-gradient(0deg, #FFFEF6 0%, #EEF3FE 100%) 0% 0% no-repeat padding-box;
+    padding: 15px;
+    width: 50%;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.guru_tab{
+    font-size: 12px;
+    font-weight: 600;
+    background-color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.guru_ico{
+    width: 20px;
+    margin-right: 5px;
+}
+.guru_ico img{
+    width: 100%;
+}
+
+.event_banner{
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.event_banner img{
+    width: 100%;
+}
+
+.event_header{
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 15px;
+}
+
+.event_body{
+    margin-top: 8px;
+}
+.event_calendar{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1C3E8B;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+.calender{
+    height: 2.2rem;
+}
+.calender img{
+    height: 100%;
+}
+.mr10{
+    margin-right: 10px;
+}
+.event_venue{
+    border-top: 1px solid #ccc;
+    margin-top: 10px;
+    padding: 20px 0;
+    font-weight: 600;
+}
+.event_ico{
+    height: 95px;
+}
+.event_ico img{
+    height: 100%;
+}
+.event_loc{
+    margin-left: 15px;
+}
+.event_loc_head{
+    font-size: 1.3rem;
+}
+.event_loc_body{
+    color: #5D5D5D;
+}
+.ticket_ico{
+    height: 1.6rem;
+    margin-right: 10px;
+}
+.ticket_ico img{
+    height: 100%;
+}
+.participate{
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+.entry_ticket{
+    background: transparent linear-gradient(180deg, #1C3E8B 0%, #0E1F46 100%) 0% 0% no-repeat padding-box;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+.entry_gold{
+    border: 1px dashed #d0a929;
+    border-radius: 5px;
+    padding: 10px;
+}
+.white_qr{
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+.event_btn_content{
+    margin-left: 10px;
+    width: 100%;
+}
+.gold_text{
+    color: #D0A929;
+    font-size: 1.3rem;
+}
+.entry_dwld_btn button{
+    border-radius: 10px;
+    border: 1px solid #fff;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #1c3e8b;
+    font-weight: 600;
+    font-size: .9rem;
+    padding: 7px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.entry_dwld_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.entry_dwld_btn img{
+    height: 2rem;
+    margin-right: 10px;
+    border-right: 2px solid #1c3e8b;
+    padding-right: 10px;
+}
+.event_group{
+    margin: 2rem 0;
+    font-style: italic;
+    color: #D0A929;
+}
+.group_ico{
+    height: 3rem;
+    margin-right: 10px;
+}
+.group_ico img{
+    height: 100%;
+}
+.nums_section {
+    border-top: 1px solid #ccc;
+    padding: 2rem 0;
+}
+.nums{
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 20px 0;
+    position: relative;
+}
+.num_ico{
+    font-family: Arial, Helvetica, sans-serif;
+    color: #fff;
+    background: #708AC4;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    min-height: 35px;
+    min-width: 35px;
+    max-height: 35px;
+    max-width: 35px;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+.line{
+    height: 30px;
+    width: 1px;
+    background: #ccc;
+    position: absolute;
+    left: 28px;
+    top: 80px;
+}
+.click_input{
+    position: relative;
+}
+.copy_btn {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    background: #000000;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 20px;
+}
+.click_input input{
+    color: #535353;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: 'Alegreya Sans';
+    font-size: 1.2rem;
+    padding: 10px;
+    border: 2px solid #00AC4B;
+    border-radius: 5px;
+}
+.whatsapp button{
+    background: #00A82D;
+    color: #fff;
+    border: 1px solid #00A82D;
+    padding: 10px;
+    border-radius: 13px;
+    font-family: 'Alegreya Sans';
+    font-size: 1.2rem;
+}
+
+.whatsapp button img{
+    height: 25px;
+    margin-right: 10px;
+    border-right: 2px solid #fff;
+    padding-right: 10px;
+}
+.nav_toogle{
+    display: none;
+    text-align: right;
+    align-items: center;
+    justify-content: right;
+    padding: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+.nav_toogle img{
+    height: 100%;
+}
+.nav_logo{
+    width: 200px;
+    display: none;
+}
+.nav_logo img{
+    width: 100%;
+}
+.drawer_overlay{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 1;
+    background: rgb(204 204 204 / 40%);
+    display: none;
+}
+@media only screen and (max-width: 768px) {
+    .nav_logo{
+        display: block;
+    }
+    .drawer {
+        min-width: 0px;
+        max-width: 0px;
+        overflow: hidden;
+    }
+    .nav_bar{
+        height: auto;
+        width: 100%;
+    }
+    .dashboard_main{
+        flex-direction: column;
+    }
+    .event_section, .ticket_section {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    .whatsapp button {
+        font-size: .86rem;
+    }
+    .entry_dwld_btn button {
+        font-size: .72rem;
+    }
+    .gold_text{
+        font-size: 1rem;
+    }
+    .nav_toogle{
+        display: flex;
+    }
+    .active{
+        min-width: 300px;
+        max-width: 300px;
+        position: fixed;
+        z-index: 2;
+    }
+}

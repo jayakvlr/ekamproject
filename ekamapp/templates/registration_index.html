@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="{{ url_for('static', filename='js/form_script.js') }}"></script>
+    
+</head>
+<body>
+    <div class="container watermark ">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+    <section id="register" class="home">
+        <div class="flex_container">
+            <div class="form_section">
+                <form id="registrationFormDesktop" action="{{ url_for('users.register', event_code=event.event_code) }}" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form_head_grey">Enter</div>
+                    <div class="form_head_b">{{ event.name }}</div>
+                    <div class="form_control flex form_container">
+                        {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="nameError" class="error-message"></span>
+                    </div>
+                    <div class="form_control flex">
+                        <div class="form_code">
+                            {{ form.country_code(class="form-control custom-select", style="max-width: 5em;") }}
+                        </div>
+                        <div style="width: 100%;">
+                            {% if form.whatsapp.errors %}
+                            {{ form.whatsapp(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.whatsapp.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.whatsapp(class="form-control") }}
+                            {% endif %}
+                            <span id="whatsappError" class="error-message"></span>
+                        </div>
+                    </div>
+                    <div class="flex form_container">
+                        <div class="form_control" style="margin-right: 1px;">
+                            <!-- Age field -->
+                            <div class="form-group">
+                                {% if form.age.errors %}
+                                {{ form.age(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.age.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.age(class="form-control form-control-lg") }}
+                                {% endif %}
+                                <span id="ageError" class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form_control" style="margin-left: 1px;">
+                            <!-- Gender field -->
+                            <div class="form-group">
+                                {% if form.gender.errors %}
+                                {{ form.gender(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.gender.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.gender(class="form-control form-control-lg") }}
+                                {% endif %}
+                                <span id="genderError" class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.place.errors %}
+                        {{ form.place(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.place.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.place(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="placeError" class="error-message"></span>
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.state.errors %}
+                        {{ form.state(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.state.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.state(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="stateError" class="error-message"></span>
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.country.errors %}
+                        {{ form.country(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.country.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.country(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="countryError" class="error-message"></span>
+                    </div>
+                    <input type="hidden" name="referrer" value="{{ request.args.get('referrer', '') }}">
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                </form>
+                <div class="form_details flex">
+                    <div class="whats_ico">
+                        <img src="../static/img/whatsapp_ico.png" alt="">
+                    </div>
+                    <div class="form_instructions">
+                        <div>Registred numbers will recieve a message on Whatsapp</div>
+                        <div style="margin-top: 5px;">
+                            <a href="{{ url_for('users.login', event_code=event.event_code) }}">Already Registered? Click here to Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="details_section">
+                <div class="head_logo">
+                    <img src="../static/img/oneness_logo.png" alt="" srcset="">
+                </div>
+                <div class="head_content">
+                    <div class="experience">
+                        <img src="../static/img/E.png" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="date_container flex">
+            <div style="padding-right: 15px; margin-right: 10px; border-right: 3px solid #000;">
+                {{event.date}} {{event.month}}<br> {{event.year}}
+            </div>
+            <div style="margin-left: 10px;">
+                {{event.location}} <br> {{event.place}}
+            </div>
+        </div>
+        <div class="experience_user">
+            <img src="../static/img/guru1.png" alt="">
+        </div>
+
+        <div class="form_section_mobile">
+            <div class="date_container_mobile flex">
+                <div style="padding-right: 15px; margin-right: 10px; border-right: 3px solid #000;">
+                    {{event.date}} {{event.month}}<br> {{event.year}}
+                </div>
+                <div style="margin-left: 10px;">
+                    {{event.location}} <br> {{event.place}}
+                </div>
+            </div>
+            <div class="experience_user_mobile">
+                <img src="../static/img/guru1.png" alt="">
+            </div>
+            <div class="form">
+                <form id="registrationFormMobile" name="mobile" action="{{ url_for('users.register', event_code=event.event_code) }}" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form_head_grey">Enter</div>
+                    <div class="form_head_b">{{ event.name }}</div>
+                    <div class="form_control flex form_container">
+                        {% if form.name.errors %}
+                        {{ form.name(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.name.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.name(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="nameError" class="error-message"></span>
+                    </div>
+                    <div class="form_control flex">
+                        <div class="form_code">
+                            {{ form.country_code(class="form-control custom-select", style="max-width: 5em;") }}
+                        </div>
+                        <div style="width: 100%;">
+                            {% if form.whatsapp.errors %}
+                            {{ form.whatsapp(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.whatsapp.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.whatsapp(class="form-control") }}
+                            {% endif %}
+                            <span id="whatsappError" class="error-message"></span>
+                        </div>
+                    </div>
+                    <div class="flex form_container">
+                        <div class="form_control" style="margin-right: 1px;">
+                            <!-- Age field -->
+                            <div class="form-group">
+                                {% if form.age.errors %}
+                                {{ form.age(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.age.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.age(class="form-control form-control-lg") }}
+                                {% endif %}
+                                <span id="ageError" class="error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form_control" style="margin-left: 1px;">
+                            <!-- Gender field -->
+                            <div class="form-group">
+                                {% if form.gender.errors %}
+                                {{ form.gender(class="form-control form-control-lg is-invalid") }}
+                                <div class="invalid-feedback">
+                                    {% for error in form.gender.errors %}
+                                    <span>{{ error }}</span>
+                                    {% endfor %}
+                                </div>
+                                {% else %}
+                                {{ form.gender(class="form-control form-control-lg") }}
+                                {% endif %}
+                                <span id="genderError" class="error-message"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.place.errors %}
+                        {{ form.place(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.place.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.place(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="placeError" class="error-message"></span>
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.state.errors %}
+                        {{ form.state(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.state.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.state(class="form-control form-control-lg") }}
+                        {% endif %}
+                        
+                    </div>
+                    <div class="form_control flex form_container">
+                        {% if form.country.errors %}
+                        {{ form.country(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.country.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.country(class="form-control form-control-lg") }}
+                        {% endif %}
+                        <span id="countryError" class="error-message"></span>
+                    </div>
+                    <input type="hidden" name="referrer" value="{{ request.args.get('referrer', '') }}">
+                    <div class="form-group">
+                        {{ form.submit(class="btn btn-outline-info") }}
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </section>
+</body>
+
+</html>

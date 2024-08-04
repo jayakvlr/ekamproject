@@ -1,0 +1,250 @@
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('../fonts/AlegreyaSans-Medium.woff2') format('woff2'),
+        url('../fonts/AlegreyaSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Alegreya Sans';
+    overflow-x: hidden;
+}
+
+.home {
+    height: 100vh;
+    background: url('../img/bg_img.jpg') center center no-repeat;
+    background-size: cover;
+}
+
+.flex_container {
+    display: flex;
+    padding: 30px;
+    padding-bottom: 15px;
+    height: 77%;
+}
+
+img {
+    height: 100%;
+}
+
+.form_section {
+    width: 40%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.flex {
+    display: flex;
+}
+
+.form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 1px 0px 7px #ccc;
+    min-height: 40%;
+}
+
+.form_head {
+    font-size: 1.4rem;
+    font-weight: 600;
+    padding: 13px 0px;
+}
+
+.form_head_grey {
+    padding-bottom: 5px;
+    font-size: 20px;
+    color: #c4c4c4;
+}
+
+.form_head_b {
+    font-weight: 600;
+    padding-bottom: 13px;
+    font-size: 20px;
+}
+
+.form_container {
+    margin-bottom: 2px;
+}
+
+.form_control {
+    width: 100%;
+    border: 1px solid #ccc;
+    align-items: center;
+    font-size: 1.4rem;
+    box-sizing: border-box;
+}
+
+.form_code {
+    width: 40%;
+    padding: 0 16px;
+    border-right: 1px solid #ccc;
+}
+
+.form_control input,
+.form_control select {
+    border: 0;
+    box-sizing: border-box;
+    padding: 13px;
+    font-size: 1.4rem;
+    outline: none;
+    width: 100%;
+    font-family: 'Alegreya Sans';
+}
+
+.form button {
+    background: #2b3c5a;
+    color: #fff;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    border: 1px solid #2b3c5a;
+    font-family: 'Alegreya Sans';
+    font-size: 1.4rem;
+}
+
+.form_details {
+    margin-top: 18px;
+}
+
+.whats_ico {
+    height: 45px;
+    margin-right: 10px;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+}
+
+.form_instructions {
+    font-size: .8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #c4c4c4;
+}
+
+.details_section {
+    width: 60%;
+}
+
+.head_logo {
+    text-align: center;
+    height: 55px;
+}
+
+.head_content {
+    text-align: center;
+    height: 35%;
+}
+
+.experience {
+    height: 100%;
+    max-width: 100%;
+}
+
+.experience img {
+    max-width: 100%;
+}
+
+.date_container {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.experience_user {
+    position: absolute;
+    bottom: 0px;
+    right: 8%;
+    height: 60%;
+}
+
+.form_section_mobile{
+    display: none;
+}
+
+.date_container_mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 768px) {
+    .date_container_mobile{
+        display: block;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        font-weight: 600;
+        position: absolute;
+        top: 85px;
+        left: 15px;
+    }
+    .head_logo {
+        margin-top: 20px;
+    }
+
+    .home{
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .experience_user{
+        display: none;
+    }
+
+    .date_container {
+        display: none;
+    }
+
+    .form_section {
+        display: none;
+    }
+
+    .details_section {
+        width: 100%;
+    }
+    .experience {
+        height: auto;
+        max-width: 100%;
+        margin-top: 10px;
+    }
+
+    .experience img{
+        height: auto;
+        width: 100%;
+    }
+
+    .form_section_mobile{
+        display: block;
+        position: relative;
+    }
+
+    .experience_user_mobile {
+        text-align: right;
+        height: 350px;
+        margin-right: -45px;
+    }
+
+    .flex_container{
+        height: auto;
+    }
+
+    .form{
+        background: #fff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 1px 0px 7px #ccc;
+        width: 100%;
+        margin-top: -40px;
+        box-sizing: border-box;
+        position: relative;
+    }
+}

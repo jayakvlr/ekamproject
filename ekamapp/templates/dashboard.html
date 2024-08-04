@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="css/dashboard.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+        <script src="{{ url_for('static', filename='js/home_script.js') }}"></script>
+    </head>
+
+    <body>
+        <div class="dashboard_container">
+            <div class="drawer_overlay" id="drawerOverlay" onclick="drawerToogle()"></div>
+            <div class="drawer" id="drawer">
+                <div class="drawer_logo">
+                    <img src="../static/img/combo_logo.png" alt="">
+                </div>
+                <div class="user_logo">
+                    <img src="../static/img/user_ico.png" alt=""> {{user.name}}
+                </div>
+
+                <div class="nav_links">
+                    Profile
+                </div>
+
+                <div class="nav_links">
+                    My Referrals
+                </div>
+
+                <div class="qr_link">
+                    <div class="qr_img">
+                        <img src="../static/img/qr_ico.svg" alt="" srcset="">
+                    </div>
+                    <div class="mt10">
+                        Your Personal Invite <br> QR Code
+                    </div>
+                    <button>Download QR Code</button>
+                </div>
+
+                <div class="logout">
+                    <form action="{{ url_for('users.logout') }}" method="post">
+                        <button type="submit" class="btn btn-link">
+                            <img src="../static/img/logout_ico.svg" alt="Logout Icon"> Logout
+                        </button>
+                    </form>
+                </div>
+                
+                
+            </div>
+            <div class="dashboard-content">
+                <div class="nav_bar flex alc spb">
+                    <div class="nav_logo">
+                        <img src="../static/img/combo_logo.png" alt="">
+                    </div>
+                    <div class="nav_toogle" onclick="drawerToogle()">
+                        <img src="../static/img/TabBar-Icons.svg" alt="" srcset="">
+                    </div>
+                </div>
+                <div class="dashboard_main">
+                    <div class="event_section">
+                        <div class="flex alc spb">
+                            <div>
+                                Upcoming
+                            </div>
+                            <div class="flex alc spb guru_tab">
+                                <div class="flex alc guru_ico">
+                                    <img src="../static/img/guru_ico.svg" alt="" srcset="">
+                                </div>
+                                <div>Mukti Guru Sri Krishnaji</div>
+                            </div>
+                        </div>
+
+                        <div class="event_banner">
+                            <img src="../static/img/event_banner.png" alt="">
+                        </div>
+
+                        <div class="event_header">
+                            Path to Enlightenment: Awakening the Inner Self
+                        </div>
+
+                        <div class="event_body">
+                            Join us for "Harmony in Motion: A Yoga Journey for Body and Soul." This rejuvenating yoga session offers gentle stretches, mindful breathing, and meditation for all levels. Experience tranquility and connection, and leave feeling refreshed and inspired.
+                        </div>
+
+                        <div class="event_calendar flex alc">
+                            <div class="calender mr10">
+                                <img src="../static/img/calnd.png" alt="">
+                            </div>
+                            <div class="mr10" style="border-right: 2px solid #ccc; padding-right: 10px;">
+                                {{event.date}} {{event.month}}<br> {{event.year}}
+                            </div>
+                            <div>
+                                9:00 AM
+                            </div>
+                        </div>
+
+                        <div class="event_venue flex alc">
+                            <div class="event_ico">
+                                <img src="../static/img/location.png" alt="">
+                            </div>
+                            <div class="event_loc">
+                                <div class="event_loc_head">{{ event.location }}</div>
+                                <div class="event_loc_body">{{ event.location }} <br/> {{ event.place }}, Kerala</div>
+                            </div>
+                        </div>
+
+                        <div class="participate">
+                            <div class="fn14 flex alc">
+                                <div class="ticket_ico">
+                                    <img src="../static/img/ticket_ico.png" alt=""> 
+                                </div>
+                                How to participate?
+                            </div>
+                            <div class="mt10">
+                                Tickets for "Path to Enlightenment: Awakening the Inner Self" are now available! Secure your spot to embark on this transformative journey. Spaces are limited, so book early to ensure your place.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ticket_section">
+                        <div class="entry_ticket">
+                            <div class="entry_gold">
+                                <div class="fn14 flex alc">
+                                    <div class="ticket_ico">
+                                        <img src="../static/img/ticket_gold.svg" alt=""> 
+                                    </div>
+                                    Entry Ticket
+                                </div>
+                                <div class="flex alc mt10">
+                                    <div class="qr_img white_qr">
+                                        <img id="qrCodeImg" src="data:image/png;base64,{{ event_qr_code }}" alt="" srcset="">
+                                    </div>
+                                    <div class="text_center event_btn_content">
+                                        <div class="gold_text">Scan this QR Code to access your entry pass</div>
+                                        <div class="entry_dwld_btn">
+                                            <button id="downloadQrCodeBtn">
+                                                <img src="../static/img/download_ico.svg" alt="" srcset=""> Download Entry QR Code
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>                                
+                            </div>
+                            
+                        </div>
+
+                        <div class="flex alc event_group">
+                            <div class="group_ico">
+                                <img src="../static/img/joim_mem_ico.svg" alt="" srcset="">
+                            </div>
+                            <div>
+                                Join the countless individuals already embarking on their spiritual journey.
+                            </div>
+                        </div>
+
+
+                        
+                        <div class="click_input">
+                            <input type="text" id="referralLink" value="{{referral_link}}">
+                            <div class="copy_btn" type="button" onclick="copyReferralLink()">
+                                click to copy
+                            </div>
+                        </div>
+
+                        <div class="flex alc whatsapp mt10">
+                            <button class="flex alc mr10">
+                                <img src="../static/img/wa_status.svg" alt="" srcset=""> WA Story
+                            </button>
+                            <button class="flex alc">
+                                <img src="../static/img/whatsapp_ico.svg" alt="" srcset=""> Share On Whatsapp
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            let toogle = false
+            function drawerToogle(){
+                toogle = !toogle;
+                if(toogle){
+                    document.getElementById('drawer').classList.add('active');
+                    document.getElementById('drawerOverlay').style.display = "block";
+                }else{
+                    document.getElementById('drawer').classList.remove('active');
+                    document.getElementById('drawerOverlay').style.display = "none";
+                }
+            }
+            
+            function copyReferralLink() {
+                    /* Get the text field */
+                    var copyText = document.getElementById("referralLink");
+
+                    /* Select the text field */
+                    copyText.select();
+                    copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+                    /* Copy the text inside the text field */
+                    document.execCommand("copy");
+
+                    /* Alert the user that the text has been copied */
+                    alert("Referral link copied to clipboard: " + copyText.value);
+                }
+        </script>
+    </body>
+
+</html>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="35" height="28" viewBox="0 0 35 28">
+  <g id="TabBar-Icons" transform="translate(0 -2)">
+    <g id="Hamburger" transform="translate(0 2)">
+      <path id="Path_1" data-name="Path 1" d="M0,2H35V7.6H0ZM0,13.2H35v5.6H0ZM0,24.4H35V30H0Z" transform="translate(0 -2)" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

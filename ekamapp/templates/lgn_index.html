@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <section class="home">
+        <div class="flex_container">
+            <div class="form_section">
+                <form  id="startform" class="form" method="post" action="{{ url_for('users.login',event_code=event.event_code) }}">
+                    {{ form.hidden_tag() }}
+                    <div class="form_head">Start with your Whatsapp number</div>
+                    <div class="form_control flex">
+                        <div class="form_code">
+                            {{ form.country_code(class="form-control custom-select", style="max-width: 5em;") }}
+                        </div>
+                        <div style="width: 100%;">
+                            {% if form.whatsapp.errors %}
+                            {{ form.whatsapp(class="form-control is-invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.whatsapp.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.whatsapp(class="form-control") }}
+                            {% endif %}
+                            <span id="whatsappError" class="error-message"></span>
+                        </div>
+                    </div>
+                    <button type="submit">GET STARTED</button>
+
+                    <div class="form_details flex">
+                        <div class="whats_ico">
+                            <img src="../static/img/whatsapp_ico.png" alt="">
+                        </div>
+                        <div class="form_instructions">
+                            <div>Registred numbers will recieve a message on Whatsapp</div>
+                            <div style="margin-top: 5px;">
+                                <a href="{{ url_for('users.register', event_code=event.event_code) }}">New members? Click here to register</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="details_section">
+                <div class="head_logo">
+                    <img src="../static/img/oneness_logo.png" alt="" srcset="">
+                </div>
+                <div class="head_content">
+                    <div class="experience">
+                        <img src="../static/img/E.png" alt="" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="date_container flex">
+            <div style="padding-right: 15px; margin-right: 10px; border-right: 3px solid #000;">
+                {{event.date}} {{event.month}}<br> {{event.year}}
+            </div>
+            <div style="margin-left: 10px;">
+                {{event.location}} <br> {{event.place}} 
+            </div>
+        </div>
+        <div class="experience_user">
+            <img src="../static/img/guru1.png" alt="">
+        </div>
+
+        <div class="form_section_mobile">
+            <div class="date_container_mobile flex">
+                <div style="padding-right: 15px; margin-right: 10px; border-right: 3px solid #000;">
+                    {{event.date}} {{event.month}} <br> {{event.year}}
+                </div>
+                <div style="margin-left: 10px;">
+                    {{event.location}} <br> {{event.place}} 
+                </div>
+            </div>
+            <div class="experience_user_mobile">
+                <img src="../static/img/guru1.png" alt="">
+            </div>
+            <form  id="startform" class="form" method="post" action="{{ url_for('users.login',event_code=event.event_code) }}">
+                {{ form.hidden_tag() }}
+                <div class="form_head">Start with your Whatsapp number</div>
+                <div class="form_control flex">
+                    <div class="form_code">
+                        {{ form.country_code(class="form-control custom-select", style="max-width: 5em;") }}
+                    </div>
+                    <div style="width: 100%;">
+                        {% if form.whatsapp.errors %}
+                        {{ form.whatsapp(class="form-control is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.whatsapp.errors %}
+                            <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                        {% else %}
+                        {{ form.whatsapp(class="form-control") }}
+                        {% endif %}
+                        <span id="whatsappError" class="error-message"></span>
+                    </div>
+                </div>
+                <button type="submit">GET STARTED</button>
+
+                <div class="form_details flex">
+                    <div class="whats_ico">
+                        <img src="../static/img/whatsapp_ico.png" alt="">
+                    </div>
+                    <div class="form_instructions">
+                        <div>Registred numbers will recieve a message on Whatsapp</div>
+                        <div style="margin-top: 5px;">
+                            <a href="{{ url_for('users.register', event_code=event.event_code) }}">New members? Click here to register</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </section>
+</body>
+</html>

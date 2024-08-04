@@ -1,0 +1,5 @@
+2024-08-04 18:48:43,210 INFO: EkamApp startup [in C:\Users\jayak\PycharmProjects\mainEkamProject\ekamproject\ekamapp\__init__.py:31]
+2024-08-04 18:48:59,765 INFO: Registration attempt for event code: e2 [in C:\Users\jayak\PycharmProjects\mainEkamProject\ekamproject\ekamapp\user\routes.py:30]
+2024-08-04 18:49:02,113 INFO: Registration attempt for event code: favicon.ico [in C:\Users\jayak\PycharmProjects\mainEkamProject\ekamproject\ekamapp\user\routes.py:30]
+2024-08-04 18:49:07,843 INFO: Registration attempt for event code: favicon.ico [in C:\Users\jayak\PycharmProjects\mainEkamProject\ekamproject\ekamapp\user\routes.py:30]
+2024-08-04 19:23:05,674 INFO: EkamApp startup [in C:\Users\jayak\PycharmProjects\mainEkamProject\ekamproject\ekamapp\__init__.py:31]
